@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+
+/* 头部*/
+
+#top-wrap {
+    background-color: aliceblue;
+}
+
+#top {
+    width: 1280px;
+    height: 30px;
+    background-color: aliceblue;
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+    line-height: 30px;
+}
+
+.left span {
+    font-size: 12px;
+}
+
+.miao {
+    margin-left: 30px;
+}
+
+.right {
+    float: right;
+    height: 30px;
+    line-height: 30px;
+}
+
+.right li {
+    float: left;
+    margin-left: 7px;
+    margin-right: 7px;
+    font-size: 12px;
+}
+
+.right li:hover {
+    border-bottom: 1px solid red;
+    color: red;
+}
+
+#prod {
+    width: 1280px;
+    height: 600px;
+    /* background-color: #666666; */
+    margin: 0 auto;
+}
+
+.img {
+    width: 300px;
+    height: 400px;
+    float: left;
+    margin: 100px 0px;
+    border: 1px solid #999999;
+    margin-left: 150px;
+}
+
+.img img {
+    width: 270px;
+    height: 330px;
+    margin: 35px 15px;
+}
+
+.inctroduce {
+    width: 300px;
+    height: 400px;
+    float: left;
+    margin: 100px 20px;
+}
+
+.one,
+.two,
+.three {
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 30px;
+    color: orange;
+    font-size: 30px;
+}
+
+.one {
+    margin-top: 70px;
+}
+
+.three {
+    margin-top: 30px;
+}
+
+#reduce,
+#add {
+    width: 30px;
+}
+
+#reduce {
+    margin-left: 100px;
+}
+
+#ipt {
+    width: 30px;
+}
+
+#addCart {
+    width: 300px;
+    height: 30px;
+    background-color: orange;
+    color: white;
+    outline: none;
+}
+
+#footer-wrap {
+    width: 100%;
+    height: 240px;
+    background-color: #000000;
+}
+
+#footer {
+    width: 1280px;
+    height: 240px;
+    font-size: 10px;
+    margin: 0 auto;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.oUl {
+    height: 30px;
+    /* float: left; */
+    margin-top: 10px;
+    margin-left: 14px;
+    background-color: #000000;
+}
+
+.oUl li {
+    float: left;
+    margin-right: 5px;
+    color: white;
+    font-size: 10px;
+}
+
+.first {
+    height: 30px;
+    float: left;
+    /* margin-top: 10px; */
+    margin-left: 10px;
+    /* background-color: #000000; */
+}
+
+.first li {
+    float: left;
+    /* margin-right: 5px; */
+    color: white;
+    font-size: 10px;
+    margin-left: 4px;
+    padding-right: 4px;
+    border-right: 1px solid #FFFFFF;
+}
+
+#footer p {
+    margin-left: 14px;
+    margin-top: 4px;
+    color: #999999;
+}
+
+#footer>p>img {
+    width: 15px;
+    height: 15px;
+}

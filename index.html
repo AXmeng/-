@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>首页</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" href="img/天猫 T.png">
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/swiper-bundle.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <script>
+        $(function() {
+
+            $(".bigimg").mouseenter(function() {
+                $(this).css({
+                    "opacity": .7,
+                    "cursor": "pointer"
+                })
+            })
+            $(".bigimg").mouseleave(function() {
+                $(this).css({
+                    "opacity": 1
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="top">
+        <div class="left">
+            <span class="miao">喵,欢迎来到天猫</span>&nbsp;&nbsp;
+            <a href="login.html">
+                <span id="denglu">请登录</span>&nbsp;&nbsp;
+            </a>
+            <a href="register.html">
+                <span id="zhuce">免费注册</span>
+            </a>
+        </div>
+        <ul class="right">
+            <li><a href="">我的淘宝</a></li>
+            <li id="cart">
+                购物车
+            </li>
+            <li><a href="">收藏夹</a></li>
+            <li><a href="" class="block">手机版</a></li>
+            <img src="img/tmall.jpg" alt="" class="none">
+            <li><a href="https://www.taobao.com/?spm=875.7931836/B.a2226mz.12.661442650ytKnp">淘宝网</a></li>
+            <li><a href="">商家支持</a></li>
+            <li><a href="">网站导航</a></li>
+        </ul>
+    </div>
+    <script>
+        if (localStorage.getItem('u-id')) {
+            $("#denglu").html('已登录');
+            $("#zhuce").html("注销");
+            $("#cart").click(function() {
+                location.href = "carts.html"
+            })
+        } else {
+            $("#cart").click(function() {
+                alert("请您先登录")
+                location.href = "login.html"
+            })
+        }
+    </script>
+    <script type="text/javascript">
+        $("span:first").nextAll().mouseenter(function() {
+            $(this).css({
+                'color': "red"
+            })
+        }).mouseleave(function() {
+            $(this).css({
+                'color': "black"
+            })
+        })
+        $(".right a").mouseenter(function() {
+            $(this).css({
+                'color': "red",
+            }).siblings().css({
+                'color': "black"
+            })
+        }).mouseleave(function() {
+            $(this).css({
+                'color': "black"
+
+            })
+        })
+        $(".right li").eq(3).mouseenter(function() {
+            $(".none").css({
+                'display': 'block'
+            })
+        }).mouseleave(function() {
+            $(".none").css({
+                'display': 'none'
+            })
+        })
+    </script>
+
+
+    <div id="top-bottom">
+        <div class="top-left">
+            <img src="https://img.alicdn.com/tfs/TB1Y10fmmR26e4jSZFEXXbwuXXa-290-130.gif" alt="">
+            <p>商品分类</p>
+        </div>
+        <div class="top-right">
+            <div class="ipt">
+                <input type="text" placeholder="&nbsp;&nbsp;搜索  天猫 商品/品牌/酒店">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="" alt="">
+            </div>
+        </div>
+        <ul id="shade">
+            <li>
+                <a href="">女装 /内衣</a>
+            </li>
+            <li>
+                <a href=""> 男装 /运动户外</a>
+            </li>
+            <li>
+                <a href="">女鞋 /男鞋 /箱包</a>
+            </li>
+            <li>
+                <a href="">美妆 /个人护理</a>
+            </li>
+            <li>
+                <a href="">腕表 /眼镜 /珠宝饰品</a>
+            </li>
+            <li>
+                <a href="">手机 /数码 /电脑办公</a>
+            </li>
+            <li>
+                <a href="">母婴玩具</a>
+            </li>
+            <li>
+                <a href="">零食 /茶酒 /进口食品</a>
+            </li>
+            <li>
+                <a href="">生鲜水果</a>
+            </li>
+            <li>
+                <a href="">大家电 /生活电器</a>
+            </li>
+            <li>
+                <a href="">家具建材</a>
+            </li>
+            <li>
+                <a href="">汽车 /配件 /用品</a>
+            </li>
+            <li>
+                <a href="">家纺 /家饰 /鲜花</a>
+            </li>
+            <li>
+                <a href="">医药保健</a>
+            </li>
+            <li>
+                <a href="">厨具 /收纳 /宠物</a>
+            </li>
+            <li>
+                <a href="">图书音像</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 拿到轮播图 -->
+    <script type="text/javascript">
+        $.ajax({
+            url: 'http://jx.xuzhixiang.top/ap/api/productlist.php',
+            data: {
+                uid: 42266
+            },
+            success: (res) => {
+                console.log(res.data)
+                res.data.forEach((v, i) => {
+                    // console.log("$('.swiper-slide>img')[i]", $('.swiper-slide>img')[i])
+                    $('.swiper-slide img')[i].src = `${v.pimg}`
+                })
+            }
+        })
+    </script>
+    <script>
+        //swiper插件
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true, //循环播放
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            simulateTouch: false, //拖动无效
+            effect: 'fade', //渐变播放
+            fadeEffect: {
+                crossFade: true,
+            },
+
+            speed: 1000, //速度
+            autoplay: {
+                delay: 2000, //延时
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        swiper.el.onmouseover = function() { //鼠标放上去停止
+            swiper.autoplay.stop();
+        }
+        swiper.el.onmouseout = function() { //鼠标离开开始播放
+            swiper.autoplay.start();
+        }
+    </script>
+
+    <!-- 小米图标排列部分 -->
+    <div>
+        <ul id="arrange">
+            <li><img src="https://img.alicdn.com/i2/2/TB1wh2sj.z1gK0jSZLewu29kVXa.png_485x175q100.jpg_.webp" alt="">
+            </li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1gOvrmZLJ8KJjy0FnXXcFDpXa?abtest=&pos=21&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1igurtrSYBuNjSspfXXcZCpXa?abtest=&pos=20&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1ytKieRWD3KVjSZKPXXap7FXa?abtest=&pos=16&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1sM7GSXXXXXb3aXXXXXXXXXXX?abtest=&pos=15&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1_kq7j1SSBuNjy0FlXXbBpVXa?abtest=&pos=13&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1_aF7pG6qK1RjSZFmXXX0PFXa?abtest=&pos=7&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1ilbUHpXXXXb8XXXXSutbFXXX.jpg_485x175q100.jpg_.webp" alt="">
+            </li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1Im97lVT7gK0jSZFpXXaTkpXa?abtest=&pos=9&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1m4azzeH2gK0jSZFEXXcqMpXa?abtest=&pos=17&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/imgextra/i4/928417138/O1CN019OFNEK22bFcXdLUb5_!!928417138.png_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1gD8NhDlYBeNjSszcXXbwhFXa?abtest=&pos=6&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1_kq7j1SSBuNjy0FlXXbBpVXa?abtest=&pos=13&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1lnhJq9BYBeNjy0FeXXbnmFXa?abtest=&pos=26&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1a3bVRXXXXXbfXFXXXXXXXXXX?abtest=&pos=5&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1pwpNhfBNTKJjy1zdXXaScpXa?abtest=&pos=12&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1Qvu9DoH1gK0jSZSyXXXtlpXa?abtest=&pos=29&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1nJxqJXXXXXchapXXSutbFXXX.jpg_485x175q100.jpg_.webp" alt="">
+            </li>
+            <li><img src="https://img.alicdn.com/i2/2/T25cAwXGhXXXXXXXXX-1785908005.jpg_485x175q100.jpg_.webp" alt="">
+            </li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1sC_ZNXT7gK0jSZFpXXaTkpXa?abtest=&pos=27&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1pwpNhfBNTKJjy1zdXXaScpXa?abtest=&pos=12&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1B0NbcL1G3KVjSZFkXXaK4XXa?abtest=&pos=22&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB11204ueL2gK0jSZFmXXc7iXXa?abtest=&pos=23&abbucket=&acm=09042.1003.1.1200415&scm=1007.13029.131809.100200300000000_485x175q100.jpg_.webp" alt=""></li>
+            <li><img src="https://img.alicdn.com/i2/2/TB1wh2sj.z1gK0jSZLewu29kVXa.png_485x175q100.jpg_.webp" alt="">
+            </li>
+        </ul>
+    </div>
+    <img src="https://aecpm.alicdn.com/simba/img/TB1_EfIJFXXXXXOXFXXSutbFXXX.jpg" alt="" class="center-img">
+    <!-- 潮店酷玩 -->
+    <div id="electronics">
+        <p>
+            <span class="zuo"></span>
+            <span class="zuo">潮电酷玩</span>
+            <span class="zuo">ELECTRONICS</span>
+        </p>
+        <div class="bigimg">
+            <img src="https://img.alicdn.com/tps/i4/TB1Q6qYWrr1gK0jSZFDSuv9yVXa.jpg" alt="">
+        </div>
+        <ul id="electronics-flex" class="flex"></ul>
+    </div>
+    <script type="text/javascript">
+        //拿到商品 
+        $.ajax({
+            type: "Get",
+            url: 'http://jx.xuzhixiang.top/ap/api/productlist.php',
+            data: {
+                uid: 10090
+            },
+            success: function(res) {
+                console.log(res.data)
+                let html = ''
+                res.data.forEach(v => {
+                    html += `
+                        <li>
+                            <a href="items.html?product_id=${v.pid}"><img src="${v.pimg}" alt=""></a>
+                            <span class="black">${v.pname}</span>
+                            <span class="green">${v.pdesc}</span>
+                            <span class="red">￥${v.pprice}</span>
+                        </li>
+                        `
+                })
+                $('#electronics-flex').html(html)
+            }
+        })
+    </script>
+    <img src="https://aecpm.alicdn.com/simba/img/TB1tELGJFXXXXaLXFXXSutbFXXX.jpg" alt="" class="center-img">
+    <!-- 打造爱巢 -->
+    <div id="home">
+        <p>
+            <span class="zuo"></span>
+            <span class="zuo">打造爱巢</span>
+            <span class="zuo">HOME</span>
+        </p>
+        <div class="bigimg">
+            <img src="https://img.alicdn.com/tfs/TB1xS4cWxv1gK0jSZFFXXb0sXXa-468-1236.jpg" alt="">
+        </div>
+        <ul id="home-flex" class="flex"></ul>
+    </div>
+    <script type="text/javascript">
+        $.ajax({
+            type: "Get",
+            url: 'http://jx.xuzhixiang.top/ap/api/productlist.php',
+            data: {
+                uid: 10089
+            },
+            success: function(res) {
+                let html = ''
+                res.data.forEach(v => {
+                    html += `
+        <li>
+            <a href="items.html?product_id=${v.pid}"><img src="${v.pimg}" alt=""></a>
+            <span class="black">${v.pname}</span>
+            <span class="green">${v.pdesc}</span>
+            <span class="red">￥${v.pprice}</span>
+        </li>
+        `
+                })
+                $('#home-flex').html(html)
+            }
+        })
+    </script>
+    <img src="https://aecpm.alicdn.com/simba/img/TB1x8DCJFXXXXc7XFXXSutbFXXX.jpg" alt="" class="center-img">
+
+    <!-- 猜你喜欢 -->
+    <div id="enjoy">
+        <p>
+            <span class="enjoy-span">猜你喜欢</span>
+        </p>
+        <ul id="enjoy-flex"></ul>
+        <img src="https://img.alicdn.com/tps/TB1wQDAPXXXXXXgaFXXXXXXXXXX-62-35.png" alt="" id="tm">
+    </div>
+    <script type="text/javascript">
+        $.ajax({
+            type: "Get",
+            url: 'http://jx.xuzhixiang.top/ap/api/productlist.php',
+            data: {
+                uid: 10096,
+            },
+            success: function(res) {
+                console.log(res.data)
+                let html = ''
+                res.data.forEach(v => {
+                    console.log(v)
+                    html += `
+                            <li>
+                            <a href="items.html?product_id=${v.pid}"> <img src="${v.pimg}" alt=""> </a> 
+                            <span class="black">${v.pname}</span> 
+                            <span class="green">${v.pdesc}</span>
+                            <span class="red"> ￥${v.pprice}</span> 
+                            </li>
+                                            `
+                })
+                $('#enjoy-flex').html(html)
+            }
+        })
+    </script>
+    <!-- 倒数第二部分 -->
+    <div id="end">
+        <a href="https://www.tmall.com/wow/seller/act/seven-day?spm=875.7931836/B.a2226n1.2.661442658vu8Fk"><img src="https://img.alicdn.com/tfs/TB14dANRXXXXXbdXXXXXXXXXXXX-1190-100.jpg" alt="" class="end-img"></a>
+        <div class="TMall-li">
+            <div class="one">
+                <ul>
+                    <li>购物指南</li>
+                    <li><a href="">免费注册</a></li>
+                    <li><a href="">开通支付宝</a></li>
+                    <li><a href="">支付宝支付</a></li>
+                </ul>
+            </div>
+            <div class="one">
+                <ul>
+                    <li>天猫保障</li>
+                    <li><a href="">发票保障</a></li>
+                    <li><a href="">售后规则</a></li>
+                    <li><a href="">缺货赔付</a></li>
+                </ul>
+            </div>
+            <div class="one">
+                <ul>
+                    <li>支付方式</li>
+                    <li><a href="">快捷支付</a></li>
+                    <li><a href="">信用卡</a></li>
+                    <li><a href="">余额宝</a></li>
+                    <li><a href="">蚂蚁花呗</a></li>
+                    <li><a href="">货到付款</a></li>
+                </ul>
+            </div>
+            <div class="one">
+                <ul>
+                    <li>商家服务</li>
+                    <li><a href="">天猫规则</a></li>
+                    <li><a href="">商家入驻</a></li>
+                    <li><a href="">商家中心</a></li>
+                    <li><a href="">天猫智库</a></li>
+                    <li><a href="">物流服务</a></li>
+                    <li><a href="">喵言喵语</a></li>
+                    <li><a href="">运营服务</a></li>
+                </ul>
+
+            </div>
+            <div class="one">
+                <li>手机天猫</li>
+                <a href=""> <img src="https://img.alicdn.com/tfscom/TB14MWoNhjaK1RjSZFAwu2dLFXa.png" alt="" class="one-img"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 末尾 -->
+    <div id="footer-wrap">
+        <div id="footer">
+            <ul class="oUl">
+                <a href="https://pages.tmall.com/wow/seller/act/2019seller?from=zebra:offline">
+                    <li>关于天猫</li>
+                </a>
+                <a href="https://helpcenter.tmall.com/index">
+                    <li>帮助中心</li>
+                </a>
+                <a href="https://open.taobao.com/?spm=a2240.7829288.a2226n1.3.372a4fe5m3wbYq">
+                    <li>开放平台</li>
+                </a>
+                <a href="https://job.alibaba.com/zhaopin/index.htm?spm=a2240.7829288.a2226n1.4.372a4fe5m3wbYq">
+                    <li>诚聘英才</li>
+                </a>
+                <a href="https://consumerservice.taobao.com/contact-us?spm=a2240.7829288.a2226n1.5.372a4fe5m3wbYq">
+                    <li>联系我们</li>
+                </a>
+                <a href="https://open.taobao.com/index.htm">
+                    <li>网站合作</li>
+                </a>
+                <a href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201801121425_43176.html?spm=a2240.7829288.a2226n1.7.372a4fe5m3wbYq">
+                    <li>法律声明</li>
+                </a>
+                <a href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201801031144_60809.html?spm=a2240.7829288.a2226n1.8.372a4fe5m3wbYq">
+                    <li>隐私权政策</li>
+                </a>
+                <a href="https://ipp.alibabagroup.com/?spm=a2240.7829288.a2226n1.9.372a4fe5m3wbYq">
+                    <li>知识产权</li>
+                </a>
+                <a href="https://jubao.alibaba.com/?spm=a2240.7829288.a2226n1.10.372a4fe5m3wbYq&site=TMALL">
+                    <li>廉正举报</li>
+                </a>
+            </ul><br>
+            <ul class="first">
+                <a href="https://www.alibabagroup.com/cn/global/home?spm=875.7931836/B.a2226n1.35.66144265zmFWVI">
+                    <li>阿里巴巴集团</li>
+                </a>
+                <a href="https://www.taobao.com/?spm=875.7931836/B.a2226n1.36.66144265zmFWVI">
+                    <li>淘宝网</li>
+                </a>
+                <a href="https://www.tmall.com/?spm=875.7931836/B.a2226n1.37.66144265zmFWVI">
+                    <li>天猫</li>
+                </a>
+                <a href="https://ju.taobao.com/?spm=875.7931836/B.a2226n1.38.66144265zmFWVI">
+                    <li>聚划算</li>
+                </a>
+                <a href="https://www.aliexpress.com/?spm=875.7931836/B.a2226n1.39.66144265zmFWVI">
+                    <li>全球速变通</li>
+                </a>
+                <a href="https://www.alibaba.com/?spm=875.7931836/B.a2226n1.40.66144265zmFWVI">
+                    <li>阿里巴巴国际交易市场</li>
+                </a>
+                <a href="https://www.1688.com/?spm=875.7931836/B.a2226n1.41.66144265zmFWVI">
+                    <li>1688</li>
+                </a>
+                <a href="https://www.alimama.com/index.htm?spm=875.7931836/B.a2226n1.42.66144265zmFWVI">
+                    <li>阿里妈妈</li>
+                </a>
+                <a href="https://www.fliggy.com/?spm=875.7931836/B.a2226n1.43.66144265zmFWVI">
+                    <li>飞猪</li>
+                </a>
+                <a href="https://www.aliyun.com/?spm=875.7931836/B.a2226n1.44.66144265zmFWVI">
+                    <li>阿里云计算</li>
+                </a>
+                <a href="http://www.alios.cn/?spm=875.7931836/B.a2226n1.45.66144265zmFWVI">
+                    <li>AliOS</li>
+                </a>
+                <a href="">
+                    <li>阿里通信</li>
+                </a>
+                <a href="https://wanwang.aliyun.com/?spm=875.7931836/B.a2226n1.47.66144265zmFWVI">
+                    <li>万网</li>
+                </a>
+                <a href="https://mobile.amap.com/?spm=875.7931836/B.a2226n1.48.66144265zmFWVI">
+                    <li>高德</li>
+                </a>
+                <a href="https://www.uc.cn/?spm=875.7931836/B.a2226n1.49.66144265zmFWVI">
+                    <li>UC</li>
+                </a>
+                <a href="https://www.umeng.com/?spm=875.7931836/B.a2226n1.50.66144265zmFWVI">
+                    <li>友盟</li>
+                </a>
+                <a href="https://www.xiami.com/?spm=875.7931836/B.a2226n1.51.66144265zmFWVI">
+                    <li>虾米</li>
+                </a>
+                <a href="https://www.dingtalk.com/?spm=875.7931836/B.a2226n1.52.66144265zmFWVI&lwfrom=20150205115110773">
+                    <li>钉钉</li>
+                </a>
+                <a href="https://www.alipay.com/">
+                    <li>支付宝</li>
+                </a>
+                <a href="https://s.alibaba.com/?spm=875.7931836/B.a2226n1.54.66144265zmFWVI&scene=clinks">
+                    <li style="border-right: none;">阿里安全</li>
+                </a>
+            </ul>
+            <br><br><br><br>
+            <p>增值电信业务经营许可证： 浙B2-20110446 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 市场名称登记证：工商网市字3301004119号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出版物网络交易平台服务经营备案证：
+                新出发浙备字第001号
+            </p>
+            <p>互联网违法和不良信息举报电话：0571-81683755 blxxjb@alibaba-inc.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://img.alicdn.com/tps/TB1_qAKKVXXXXXjapXXXXXXXXXX-20-20.png" alt="">浙公网安备 33010002000120号
+            </p>
+            <p>医疗器械网络交易服务第三方平台备案：（浙）网械平台备字[2018]第00002号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互联网药品交易服务资格证书：国A20150001
+            </p>
+            <p>浙江省网络食品销售第三方平台提供者备案：浙网食A33010002 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12318举报
+            </p>
+            <p>© 2003-2020 TMALL.COM 版权所有</p>
+            <img src="https://img.alicdn.com/tps/TB1_qAKKVXXXXXjapXXXXXXXXXX-20-20.png" alt="" style="margin: 10px 10px;">
+            <img src="https://img.alicdn.com/tps/i1/TB13mgzHXXXXXbjXVXXzby4IVXX-80-30.jpg" alt="" style="margin: 10px 5px;">
+        </div>
+    </div>
+    <>
+        alert('大喊一声奥利给，所有东西都下胃')
+        </>
+</body>
+
+</html>

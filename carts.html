@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/carts.css">
+    <link rel="shortcut icon" href="img/天猫 T.png">
+    <script src="js/carts.js"></script>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div id="top">
+        <div class="left">
+            <span class="miao">喵,欢迎来到天猫</span>&nbsp;&nbsp;
+            <a href="login.html">
+                <span id="denglu">请登录</span>&nbsp;&nbsp;
+            </a>
+            <a href="register.html">
+                <span id="zhuce">免费注册</span>
+            </a>
+        </div>
+        <ul class="right">
+            <li><a href="">我的淘宝</a></li>
+            <li><a href="carts.html">购物车</a></li>
+            <li><a href="">收藏夹</a></li>
+            <li><a href="">手机版</a></li>
+            <li><a href="https://www.taobao.com/?spm=875.7931836/B.a2226mz.12.661442650ytKnp">淘宝网</a></li>
+            <li><a href="">商家支持</a></li>
+            <li><a href="">网站导航</a></li>
+        </ul>
+    </div>
+    <script>
+        if (localStorage.getItem('u-id')) {
+            $("#denglu").html('已登录');
+            $("#zhuce").html("注销");
+        }
+    </script>
+    <script type="text/javascript">
+        $("span:first").nextAll().mouseenter(function() {
+            $(this).css({
+                'color': "red"
+            })
+        }).mouseleave(function() {
+            $(this).css({
+                'color': "black"
+            })
+        })
+    </script>
+    <section id="sections">
+        <!-- cart -->
+        <div class="cart-head">
+            <div class="checked-btn">
+                <input type="checkbox" name="" id="checked-all-btn"> 全选
+            </div>
+            <div class="message">
+                商品信息
+            </div>
+            <ul class="oUl">
+                <li>单价</li>
+                <li>数量</li>
+                <li>金额</li>
+                <li>操作</li>
+            </ul>
+        </div>
+    </section>
+    <section id="section">
+    </section>
+    <!-- 总和 -->
+    <div id="end">
+
+
+        <button id="sumBtn">结算</button>
+        <span id="null"></span>
+        <span>元</span>
+
+        <span id="sum">0</span>
+        <span>您需要支付：</span>
+    </div>
+</body>
+<script>
+    $("#sumBtn").click(function() {
+        alert("别看了，你没钱买！略略略😘")
+    })
+</script>
+
+</html>
